@@ -4,16 +4,16 @@ function App(){
     <h1>hello</h1>
     <MessageDemo message="jas"/>
     <MessageDemo message="yash"/>
-    <MessageDemo message="aman"/>
+    <MessageDemo message="amar"/>
     </>
   );
 }
 
-function MessageDemo(props){
-  console.log("hii",props);
+function MessageDemo({message,name}){
+  console.log("hii",message);
   return(
     <>
-    <h1>Hello {props.message}</h1>
+    <h1>Hello {message}</h1>
     </>
   );
 }
