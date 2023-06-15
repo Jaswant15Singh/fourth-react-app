@@ -12,12 +12,12 @@ function App(){
 function ListDemo(){
   
 // let data=["Good Morning"];
-let [list,setList]=useState(["Jaswant"]);
+let [list,setList]=useState(["Juhu Group 4"]);
 let inputRef=useRef();
 let addItemAcction = () => {
  
   let inputValue=inputRef.current.value;
-  let newList=[inputValue,...list];
+  let newList=[...list,inputValue];
   // console.log(newList);
   setList(newList);
   inputRef.current.value="";
