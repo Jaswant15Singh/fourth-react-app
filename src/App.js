@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App(){
   return(
@@ -13,20 +13,19 @@ function ListDemo(){
   
 // let data=["Good Morning"];
 let [list,setList]=useState(["Jaswant"]);
-
+let inputRef=useRef();
 let addItemAcction = () => {
-  let inputElement=document.querySelector("#id1");
-
-  let inputValue=inputElement.value;
-  let newList=[...list,inputValue];
-  console.log(newList);
+ 
+  let inputValue=inputRef.current.value;
+  let newList=[inputValue,...list];
+  // console.log(newList);
   setList(newList);
-  inputElement.value="";
+  inputRef.current.value="";
 };
 
 return(
   <>
-  <input type="text" id="id1" placeholder="WhatsApp"/>
+  <input type="text" ref={inputRef} placeholder="WhatsApp"/>
   <input type="button" value="Add New Item" onClick={addItemAcction} />
   {list.map((item)=>
   (<h1>{item}</h1>))}
